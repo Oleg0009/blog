@@ -1,0 +1,129 @@
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.6;
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #535bf2;
+  --border: #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: rgba(255, 255, 255, 0.87);
+    --muted: #9ca3af;
+    --accent: #9ea2ff;
+    --border: #2e2e2e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Layout ---- */
+.site {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.site-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--fg);
+}
+
+.site-main {
+  flex: 1;
+}
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* ---- Post list ---- */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.post-list-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+.post-list-date {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+.post-list-desc {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+/* ---- Single post ---- */
+.post-back {
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.post-date {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.post :is(h1, h2, h3) {
+  line-height: 1.25;
+}
+.post pre {
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.post code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+.post img {
+  max-width: 100%;
+  height: auto;
+}
